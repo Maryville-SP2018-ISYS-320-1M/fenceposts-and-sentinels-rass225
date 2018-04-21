@@ -47,11 +47,10 @@ public class P2_InfiniteGuessingGame {
 			if (nextGuess < 0 || nextGuess > 100) {
 				System.out.println("ERROR: Guess should be between 0 and 100");
 			}
-		} while (nextGuess < 0 || nextGuess > 100);
-
+		} while (nextGuess < 0 || nextGuess > 100); 
 		return nextGuess;
 	}
-
+	
 	public static int playGame(int secretNumber, int allowedGuesses) {
 		int numOfGuessesTaken = 0;
 		while (numOfGuessesTaken < allowedGuesses) {
@@ -59,8 +58,11 @@ public class P2_InfiniteGuessingGame {
 
 			if (nextGuess == secretNumber) {
 				return numOfGuessesTaken;
-			} else {
-				System.out.println("Nope, guess again. ");
+			} else if(nextGuess > secretNumber) {
+				System.out.print("Lower! Try again!");
+			}
+			else {
+				System.out.println("Higher! Try again!");
 				numOfGuessesTaken++;
 			}
 		}
